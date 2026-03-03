@@ -1,0 +1,22 @@
+int n = 0;
+const int LED_PIN = 4;
+int previous_time;
+int current_time;
+int state = LOW;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  pinMode(4, OUTPUT);
+  
+}
+
+void loop() {
+  current_time = millis();
+  if(current_time - previous_time > 500){
+    previous_time=current_time;
+    state = !state;
+    digitalWrite(LED_PIN, state);
+  } 
+
+}
